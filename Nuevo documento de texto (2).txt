@@ -1,0 +1,19 @@
+private void btnIngresar_Click(object sender, EventArgs e)
+        {
+            Usuario oUsuario = new Usuario();
+            string usuario = txtUsuario.Text;
+            string contraseña = txtContrasenia.Text;
+
+            oUsuario = OperacionesUsuarios.TraerUsuario(usuario, contraseña);
+
+            if (oUsuario!=null)
+            {
+                MessageBox.Show("Bienvenido al Sistema: " + oUsuario.Usu_apellidoNombre, "Bienvenida");
+                FrmPrincipal oFrmPrincipal = new FrmPrincipal(oUsuario);
+                oFrmPrincipal.Show();
+            }
+            else
+            {
+                MessageBox.Show("EL USUARIO O CONTRASEÑA ES INCORRECTO!");//muestra un mnj
+            }
+        }
